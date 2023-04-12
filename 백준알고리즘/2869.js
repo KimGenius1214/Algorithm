@@ -6,14 +6,4 @@ const A = Number(input[0]);
 const B = Number(input[1]);
 const V = Number(input[2]);
 
-let result = 1;
-let height = 0;
-while (true) {
-  height += A;
-  if (height >= V) {
-    console.log(result);
-    break;
-  }
-  height -= B;
-  result += 1;
-}
+console.log(Math.ceil((V - B) / (A - B)));
