@@ -1,9 +1,20 @@
-const s1 = ["a", "b", "c"];
-const s2 = ["com", "b", "d", "p", "c"];
+const a = 3;
+const b = 5;
 
-function solution(s1, s2) {
-  let answer = s1.filter((x) => s2.includes(x));
-  return answer.length;
+function solution(a, b) {
+  var answer = 0;
+  if (a === b) {
+    answer = a;
+    return answer;
+  } else if (a < b) {
+    answer += a;
+    a + 1;
+    return answer;
+  } else if (a > b) {
+    answer += b;
+    b + 1;
+    return answer;
+  }
 }
 
-solution(s1, s2);
+solution(a, b);
