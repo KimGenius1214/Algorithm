@@ -1,15 +1,27 @@
-// 10870 피보나치 수 5
-const fs = require("fs");
-// const input = fs.readFileSync("example.txt").toString();
-var input = fs.readFileSync("/dev/stdin").toString();
+// 2609 최대공약수와 최소공배수
+var fs = require("fs");
+// var input = fs.readFileSync("example.txt").toString().split(" ");
+var input = fs.readFileSync("/dev/stdin").toString().split(" ");
+var a = parseInt(input[0]);
+var b = parseInt(input[1]);
 
-let n = Number(input);
-let prev = 0;
-let next = 1;
-let result = 0;
-for (let i = 0; i < n; i++) {
-  result = prev + next;
-  prev = next;
-  next = result;
+function solution(num1, num2) {
+  const mulNum = num1 * num2;
+  const gcd = getGCD(num1, num2);
+  console.log(gcd);
+  console.log(mulNum / gcd);
 }
-console.log(prev);
+
+let getGCD = (num1, num2) => {
+  let gcd = 1;
+
+  for (let i = 2; i <= Math.min(num1, num2); i++) {
+    if (num1 % i === 0 && num2 % i === 0) {
+      gcd = i;
+    }
+  }
+
+  return gcd;
+};
+
+solution(a, b);
