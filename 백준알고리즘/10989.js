@@ -2,7 +2,6 @@
 const fs = require("fs");
 const input = fs
   .readFileSync("/dev/stdin")
-  // .readFileSync("example.txt")
   .toString()
   .trim()
   .split("\n")
@@ -10,7 +9,7 @@ const input = fs
 
 const iter = input.shift();
 
-const arr = input.toString().split(",").sort().join("");
+const arr = input.toString().split("").sort().join("");
 
 for (const i of arr) {
   console.log(i);
