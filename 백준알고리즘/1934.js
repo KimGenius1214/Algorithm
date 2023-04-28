@@ -9,10 +9,10 @@ const input = fs
 
 const a = Number(input[0]);
 const answer = [];
-let getGCD = (num1, num2) => {
+const getGCD = (a, b) => {
   let gcd = 1;
-  for (let i = 2; i <= Math.min(num1, num2); i++) {
-    if (num1 % i === 0 && num2 % i === 0) {
+  for (let i = 2; i <= Math.min(a, b); i++) {
+    if (a % i === 0 && b % i === 0) {
       gcd = i;
     }
   }
@@ -20,7 +20,7 @@ let getGCD = (num1, num2) => {
 };
 
 // 최소공배수
-function getLCM(a, b) {
+const getLCM = (a, b) => {
   let lcm = 1;
   while (true) {
     if (lcm % a == 0 && lcm % b == 0) {
@@ -29,7 +29,7 @@ function getLCM(a, b) {
     lcm++;
   }
   return lcm;
-}
+};
 
 for (let i = 1; i <= a; i++) {
   let x = Number(input[i].split(" ")[0]);
