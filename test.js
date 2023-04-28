@@ -1,22 +1,9 @@
-const s = "pPoooyY";
+const s = "a234";
+// const s = "1234";
 
 function solution(s) {
-  let arr = [];
-  for (const i of s) {
-    if (i.toLowerCase() === "y" || i.toLowerCase() === "p") {
-      arr.push(i);
-    }
-  }
-  let pnum = 0;
-  let ynum = 0;
-  for (const i of arr) {
-    if (i.toLowerCase() === "y") {
-      ynum += 1;
-    } else pnum += 1;
-  }
-  var answer = pnum === ynum;
-  console.log(pnum === ynum);
-
-  return answer;
+  let regex = /^\d{6}$|^\d{4}$/;
+  return regex.test(s);
 }
+
 solution(s);
