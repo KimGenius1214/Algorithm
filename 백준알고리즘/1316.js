@@ -10,11 +10,9 @@ const input = fs
 const a = input.shift();
 let res = 0;
 
-for (const i of input) {
-  let arr = [];
-  for (const j of i) {
-    if (!arr.includes(j)) arr.push(j);
-  }
-  const newRes = i.split("").filter((x) => !arr.includes(x));
-  console.log(newRes);
-}
+let arr = [];
+
+input.forEach((r) => {
+  if (!arr.includes(r)) return arr.push(r);
+});
+console.log(arr);
