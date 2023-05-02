@@ -8,7 +8,6 @@ const input = fs
   .split("\n");
 
 const a = input.shift();
-let res = 0;
 
 for (const i of input) {
   let arr = [];
@@ -16,5 +15,4 @@ for (const i of input) {
     if (!arr.includes(j)) arr.push(j);
   }
   const newRes = i.split("").filter((x) => !arr.includes(x));
-  console.log(newRes);
 }
