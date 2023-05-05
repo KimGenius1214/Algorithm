@@ -1,15 +1,15 @@
-// 10952 A  + B - 5
+// 9085 더하기
 const fs = require("fs");
-const input = fs
-  .readFileSync("/dev/stdin")
-  // .readFileSync("example.txt")
-  .toString()
-  .trim()
-  .split("\n");
-
-for (const i of input) {
-  if (Number(i[0]) === 0 && Number(i[2]) === 0) {
-    break;
+ip = fs.readFileSync(0).toString().split("\n");
+k = 0;
+t = parseInt(ip[k++]);
+for (i = 0; i < t; i++) {
+  sum = 0;
+  n = parseInt(ip[k++]);
+  v = ip[k++].split(" ").map(Number);
+  for (j = 0; j < n; j++) {
+    a = parseInt(v[j]);
+    sum += a;
   }
-  console.log(Number(i[0]) + Number(i[2]));
+  console.log(sum);
 }
