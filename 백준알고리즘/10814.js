@@ -11,6 +11,7 @@ let arr = [];
 for (const i of input) {
   arr.push(i.split(" "));
 }
-arr.map((r) => {
-  console.log();
-});
+console.log(arr);
+for (const i of arr) {
+  console.log(i[0]);
+}
