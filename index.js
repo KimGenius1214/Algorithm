@@ -1,8 +1,8 @@
 // 1316 그룹단어체커
 const fs = require("fs");
 const input = fs
-  .readFileSync("/dev/stdin")
-  // .readFileSync("example.txt")
+  // .readFileSync("/dev/stdin")
+  .readFileSync("example.txt")
   .toString()
   .trim()
   .split("\n");
@@ -17,8 +17,10 @@ for (const i of input) {
   for (const j of i) {
     if (arr.indexOf(j) === -1) {
       arr.push(j);
+      console.log(arr);
     } else {
       if (arr.indexOf(j) !== arr.length - 1) {
+        console.log(j);
         isGroupWord = false;
         break;
       }
