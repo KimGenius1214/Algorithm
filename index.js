@@ -1,17 +1,33 @@
-// 2748 피보나치 수 2
+// 1316 그룹단어체커
 const fs = require("fs");
 const input = fs
-  // .readFileSync("./example.txt")
   .readFileSync("/dev/stdin")
+  // .readFileSync("example.txt")
   .toString()
-  .trim();
+  .trim()
+  .split("\n");
 
-let first = 0;
-let next = 1;
-let temp = 0;
-for (let i = 0; i < Number(input); i++) {
-  temp = BigInt(first + next);
-  first = BigInt(next);
-  next = BigInt(temp);
+const a = input.shift();
+let res = 0;
+
+for (const i of input) {
+  let arr = [];
+  let isGroupWord = true;
+
+  for (const j of i) {
+    if (arr.indexOf(j) === -1) {
+      arr.push(j);
+    } else {
+      if (arr.indexOf(j) !== arr.length - 1) {
+        isGroupWord = false;
+        break;
+      }
+    }
+  }
+
+  if (isGroupWord) {
+    res += 1;
+  }
 }
-console.log(first.toString());
+
+console.log(res);
