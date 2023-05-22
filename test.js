@@ -1,18 +1,15 @@
-const s = "try hello world";
-function solution(s) {
-  var answer = "";
-  let res = s.split(" ");
-  for (let i = 0; i < res.length; i++) {
-    for (let j = 0; j < res[i].length; j++) {
-      if (j % 2 === 0) {
-        answer += res[i][j].toUpperCase();
-      } else {
-        answer += res[i][j].toLowerCase();
-      }
+const strings = ["abce", "abcd", "cdx"];
+const n = 2;
+function solution(strings, n) {
+  let arr = [];
+  arr = strings.sort((a, b) => {
+    if (a[n] === b[n]) {
+      return a.localeCompare(b);
+    } else {
+      return a[n].localeCompare(b[n]);
     }
-    if (i < res.length - 1) answer += " ";
-  }
-  return answer;
+  });
+  return arr;
 }
 
-solution(s);
+solution(strings, n);
