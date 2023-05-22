@@ -7,4 +7,7 @@ const input = fs
   .trim()
   .split("\n");
 
-const a = input[0];
+const a = input.shift();
+
+console.log(a);
+// a += "A";
