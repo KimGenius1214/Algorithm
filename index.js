@@ -1,20 +1,21 @@
-// 10815 숫자 카드
+// 2941 크로아티아 알파벳
 const fs = require("fs");
-const input = fs
+let input = fs
   .readFileSync("/dev/stdin")
   // .readFileSync("example.txt")
   .toString()
-  .trim()
-  .split("\n")
-  .map((r) => r.replace("\r", ""));
-const arrA = new Set(input[1].split(" "));
-const arrB = input[3].split(" ");
-let res = [];
-for (const i of arrB) {
-  if (arrA.has(i)) {
-    res.push(1);
-  } else {
-    res.push(0);
+  .trim();
+
+function solution(input) {
+  const dic = ["c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="];
+  let num = 0;
+  for (let i = 0; i < dic.length; i++) {
+    while (input !== input.replace(dic[i], "")) {
+      num += 1;
+      input = input.replace(dic[i], " ");
+    }
   }
+  return num + input.split(" ").join("").length;
 }
-console.log(res.join(" "));
+
+console.log(solution(input));
