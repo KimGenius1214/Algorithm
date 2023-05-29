@@ -3,6 +3,8 @@ function solution(arr) {
     for (const i of arr){
         answer += i
     }
+    const i = 'aa'
+    i.substring()
     
     return answer / arr.length;
 }
