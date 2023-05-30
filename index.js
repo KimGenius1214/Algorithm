@@ -1,13 +1,12 @@
-// 최소 최대
-const fs = require("fs");
-const input = fs
-    .readFileSync("/dev/stdin")
-  // .readFileSync("example.txt")
-  .toString()
-  .trim()
-  .split("\n")
+// 1373 2진수 8진수 
+const fs = require('fs');
+let N = fs.readFileSync("./dev/stdin").toString().trim();
+let answer = '';
 
-const a = input.shift()
-const arr= input.map((r)=> r.split(" "))
-const res = arr[0].map(Number)
-console.log(Math.min(...res), Math.max(...res))
+
+while(N.length>3){
+  let S = N.slice(N.length-3,N.length)
+  answer = parseInt(S,2).toString(8)+answer
+  N = N.slice(0,N.length-3)
+}
+console.log(parseInt(N,2).toString(8)+answer)
