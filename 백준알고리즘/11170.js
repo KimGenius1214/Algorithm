@@ -7,16 +7,18 @@ const input = fs
   .split("\n");
 
 const a = input.shift();
-const check = (n, m) => {
-  let cnt = 0;
-  for (let i = n; i <= m; i++) {
-    if (i === 0) cnt++;
-    let i2 = i;
-  }
-  return cnt;
-};
+let arr = [];
 for (const i of input) {
-  let arr = [];
+  let res = [];
+  let cnt = 0;
   arr = i.replace("\r", "").split(" ").map(Number);
-  console.log(check(arr[0], arr[1]));
+  for (let j = arr[0]; j < arr[1] + 1; j++) {
+    res.push(j);
+  }
+  for (const k of res) {
+    if (k % 10 === 0) {
+      cnt++;
+    }
+  }
+  console.log(cnt);
 }
