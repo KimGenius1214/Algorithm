@@ -1,22 +1,16 @@
-// 11170 0의 개수
-const fs = require("fs");
-const input = fs
-  // .readFileSync("/dev/stdin")
-  .readFileSync("example.txt")
-  .toString()
+// 2587 대표값2
+const input = require("fs")
+  .readFileSync("/dev/stdin", "utf-8")
+  .trim()
   .split("\n");
+let mode = 0,
+  total = 0;
 
-const a = input.shift();
-const check = (n, m) => {
-  let cnt = 0;
-  for (let i = n; i <= m; i++) {
-    if (i === 0) cnt++;
-    let i2 = i;
-  }
-  return cnt;
-};
-for (const i of input) {
-  let arr = [];
-  arr = i.replace("\r", "").split(" ").map(Number);
-  console.log(check(arr[0], arr[1]));
+for (let i = 0; i < input.length; i++) {
+  total += Number(input[i]);
 }
+
+const forSort = input.sort((a, b) => a - b);
+mode = Math.floor(input.length / 2);
+console.log(total / input.length);
+console.log(forSort[mode]);
