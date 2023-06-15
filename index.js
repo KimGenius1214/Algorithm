@@ -1,7 +1,7 @@
 // 1475 방 번호
 const input = require("fs")
-  .readFileSync("/dev/stdin", "utf-8")
-  // .readFileSync("example.txt", "utf-8")
+  // .readFileSync("/dev/stdin", "utf-8")
+  .readFileSync("example.txt", "utf-8")
   .trim();
 function solution(input) {
   let arr = Array.from({ length: 10 }, () => 0);

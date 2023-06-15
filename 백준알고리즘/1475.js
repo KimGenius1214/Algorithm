@@ -1,16 +1,18 @@
 // 1475 방 번호
 const input = require("fs")
-  //   .readFileSync("/dev/stdin", "utf-8")
+  // .readFileSync("/dev/stdin", "utf-8")
   .readFileSync("example.txt", "utf-8")
   .trim();
-let res = 0;
-for (const i of input) {
-  let set = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  if (set.includes(Number(i))) {
-    set = set.filter((r) => r !== Number(i));
-    console.log(set);
-  } else {
-    res += 1;
+function solution(input) {
+  let arr = Array.from({ length: 10 }, () => 0);
+  for (let i = 0; i < input.length; i++) {
+    arr[input[i]]++;
   }
+  if (arr[9]) {
+    arr[6] += arr.pop();
+  }
+  arr[6] = Math.ceil(arr[6] / 2);
+  let max = Math.max(...arr);
+  return max;
 }
-console.log(res);
+console.log(solution(input));
