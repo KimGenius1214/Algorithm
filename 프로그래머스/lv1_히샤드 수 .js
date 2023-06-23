@@ -1,4 +1,4 @@
-const x = 13;
+const x = 10;
 function solution(x) {
   var answer = true;
   let num = 0;
@@ -10,6 +10,7 @@ function solution(x) {
   } else {
     answer = false;
   }
+  console.log(answer);
   return answer;
 }
 
