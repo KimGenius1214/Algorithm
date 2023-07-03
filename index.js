@@ -1,19 +1,15 @@
-// 5355 화성 수학
-let input = require("fs")
-  //   .readFileSync("/dev/stdin", "utf-8")
-  .readFileSync("example.txt", "utf-8")
+// 10989 수 정렬하기 3
+const fs = require("fs");
+const input = fs
+  .readFileSync("/dev/stdin")
+  // .readFileSync("example.txt")
+  .toString()
   .trim()
-  .split("\n");
+  .split("\n")
+  .map((item) => Number(item));
 
-const a = input.shift();
-
-input = input.map((el) => el.split(" "));
-for (let i = 0; i < input.length; i++) {
-  let value = +input[i][0];
-  for (let j = 1; j < input[i].length; j++) {
-    if (input[i][j] === "@") value *= 3;
-    else if (input[i][j] === "%") value += 5;
-    else value -= 7;
-  }
-  console.log(value.toFixed(2));
+const iter = input.shift();
+const arr = input.toString().split(",").sort().join("");
+for (const i of arr) {
+  console.log(i);
 }
