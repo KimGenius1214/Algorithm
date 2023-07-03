@@ -1,4 +1,32 @@
 // 11655 ROT13
+const fs = require("fs");
+const input = fs
+  //   .readFileSync("/dev/stdin")
+  .readFileSync("example.txt")
+  .toString()
+  .trim();
+
+let str = "";
+for (const i of input) {
+  if (
+    i.charCodeAt(0) === 32 ||
+    (i.charCodeAt(0) > 47 && i.charCodeAt(0) < 58)
+  ) {
+    str += i;
+  } else if (i.charCodeAt(0) < 91) {
+    str += String.fromCharCode(
+      i.charCodeAt(0) + 13 > 90 ? i.charCodeAt(0) - 13 : i.charCodeAt(0) + 13
+    );
+  } else {
+    str += String.fromCharCode(
+      i.charCodeAt(0) + 13 > 122 ? i.charCodeAt(0) - 13 : i.charCodeAt(0) + 13
+    );
+  }
+}
+
+console.log(str);
+
+// 11655 ROT13
 var fs = require("fs");
 var inputs = fs.readFileSync("/dev/stdin").toString().split("");
 var answer = "";
