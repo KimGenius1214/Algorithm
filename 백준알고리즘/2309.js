@@ -1,7 +1,7 @@
 // 2309 일곱 난쟁이
 const input = require("fs")
-  .readFileSync("/dev/stdin", "utf-8")
-  // .readFileSync("example.txt", "utf-8")
+  //   .readFileSync("/dev/stdin", "utf-8")
+  .readFileSync("example.txt", "utf-8")
   .trim()
   .split("\n")
   .map(Number);
