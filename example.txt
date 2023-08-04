@@ -1,1 +1,1 @@
-7
+Knuth-Morris-Pratt
