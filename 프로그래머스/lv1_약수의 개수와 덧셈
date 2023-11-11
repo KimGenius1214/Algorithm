@@ -42,6 +42,7 @@ function test(num) {
       result.push(index);
       if (num / index !== index) result.push(num / index);
     }
+
     index++;
   }
 }
