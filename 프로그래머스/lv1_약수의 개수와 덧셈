@@ -25,6 +25,7 @@ function test(num) {
   //case 1
   while (index <= num) {
     if (num % index === 0) result.push(index);
+    index++;
   }
 
   console.log(result);
@@ -32,6 +33,7 @@ function test(num) {
   //case 2
   while (index <= num / 2) {
     if (num % index === 0) result.push(index);
+    index++;
   }
 
   console.log([...result, num]);
