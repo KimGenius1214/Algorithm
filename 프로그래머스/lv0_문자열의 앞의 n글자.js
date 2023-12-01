@@ -1,5 +1,6 @@
 function solution(my_string, n) {
   var answer = "";
-  answer = my_string.substring(0, n);
+  let num = my_string.length - n;
+  answer = my_string.substring(num);
   return answer;
 }
