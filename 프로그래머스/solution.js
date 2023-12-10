@@ -9,5 +9,4 @@ function solution(my_string) {
 function splitAndSort(str) {
   return str.split("").sort().join("");
 }
-
 solution();
