@@ -15,5 +15,6 @@ rl.on("line", function (line) {
   for (let i = 0; i < n; i++) {
     answer += str;
   }
+
   console.log(answer);
 });
