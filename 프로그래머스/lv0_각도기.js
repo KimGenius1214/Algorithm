@@ -9,6 +9,5 @@ function solution(angle) {
   } else {
     answer = 4;
   }
-
   return answer;
 }
