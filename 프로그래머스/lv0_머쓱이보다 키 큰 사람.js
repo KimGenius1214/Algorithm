@@ -5,5 +5,6 @@ function solution(array, height) {
       answer += 1;
     }
   }
+
   return answer;
 }
