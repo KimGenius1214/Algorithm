@@ -5,5 +5,6 @@ function solution(n) {
       answer.push(i);
     }
   }
+
   return answer;
 }
