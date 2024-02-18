@@ -3,6 +3,5 @@ function solution(strlist) {
   for (const i of strlist) {
     answer.push(i.length);
   }
-
   return answer;
 }
