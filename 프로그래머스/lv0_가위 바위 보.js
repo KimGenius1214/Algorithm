@@ -9,6 +9,5 @@ function solution(rsp) {
       answer += "2";
     }
   }
-
   return answer;
 }
