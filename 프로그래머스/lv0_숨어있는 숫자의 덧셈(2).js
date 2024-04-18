@@ -8,4 +8,3 @@ function solution(my_string) {
   }
   return answer;
 }
-s;
