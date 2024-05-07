@@ -3,6 +3,5 @@ function solution(my_string, k) {
   for (let i = 0; i < k; i++) {
     answer += my_string;
   }
-
   return answer;
 }
