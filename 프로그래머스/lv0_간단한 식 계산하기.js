@@ -7,6 +7,6 @@ function solution(binomial) {
         answer = Number(arr[0]) - Number(arr[2])
     }else {
         answer = Number(arr[0]) * Number(arr[2])
-    }
+    } 
     return answer;
 }
