@@ -1,12 +1,13 @@
 function solution(s){
-    let answer="";
-    for(const i of s){
-        if(i === 'A'){
-            answer += '#'
-        }else {
-            answer += i
-        }
-    }
+    let answer=s;
+    answer = answer.replace(/A/g, '#')
+    // for(const i of s){
+    //     if(i === 'A'){
+    //         answer += '#'
+    //     }else {
+    //         answer += i
+    //     }
+    // }
     return answer;
 }
 
