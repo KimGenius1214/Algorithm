@@ -7,7 +7,8 @@ function solution(arr){
     //     }
     // }
     // answer = min
-    answer = Math.min(...arr)
+    // answer = Math.min(...arr)
+    answer = Math.min.apply(null,arr)
     return answer;
 }
 
