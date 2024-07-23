@@ -1,12 +1,13 @@
 function solution(arr){         
-    let answer = 0;
-    let min = Number.MAX_SAFE_INTEGER
-    for(const i of arr){
-        if(min > i){
-            min = i
-        }
-    }
-    answer = min
+    // let answer = 0;
+    // let min = arr[0]
+    // for(const i of arr){
+    //     if(min > i){
+    //         min = i
+    //     }
+    // }
+    // answer = min
+    answer = Math.min(...arr)
     return answer;
 }
 
