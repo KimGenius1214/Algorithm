@@ -8,5 +8,12 @@ function solution(s){
     return answer;
 }
 
+function solution(s){
+    let answer="YES";
+    s=s.toLowerCase();
+    if(s.split('').reverse().join('')!=s) return "NO";    
+    return answer;
+}
+
 let str="goooG";
 console.log(solution(str));
