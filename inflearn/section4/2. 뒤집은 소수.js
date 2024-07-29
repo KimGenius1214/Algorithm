@@ -25,7 +25,7 @@ function solution(arr){
     let answer=[];
     for(const i of arr){
         let rev = Number(i.toString().split('').reverse().join(''));
-        if(isPrime(rev) && rev >= 2) answer.push(rev);
+        if(isPrime(rev)) answer.push(rev);
     }
     return answer;
 }
