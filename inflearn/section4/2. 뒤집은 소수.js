@@ -12,6 +12,7 @@ function getPrime(num){
 }
 
 function isPrime(num){
+    if(num === 1) return false;
     for(let i = 2; i * i <= num; i++){
         if(num % i === 0){
             return false;
@@ -23,9 +24,23 @@ function isPrime(num){
 function solution(arr){
     let answer=[];
     for(const i of arr){
-        let rev = i.toString().split('').reverse().join('');
-        let num = Number(rev);
-        if(isPrime(num) && num >= 2) answer.push(num);
+        let rev = Number(i.toString().split('').reverse().join(''));
+        if(isPrime(rev) && rev >= 2) answer.push(rev);
+    }
+    return answer;
+}
+
+function solution(arr){
+    let answer=[];
+    for(let i of arr){
+        let res = 0;
+        //뒤집기 추출;
+        while(i){
+            let t = i % 10;
+            res = res * 10 + t;
+            i = parseInt(i / 10);
+        }
+
     }
     return answer;
 }
