@@ -1,3 +1,4 @@
+// 시간 복잡도로 인해서 sort 내장함수는 알고리즘에서 최대한 사용하지 않도록.
 // function solution(arr1, arr2){
 //     let answer=[];
 //     answer = arr1.concat(arr2).sort((a, b) => a - b);
@@ -13,6 +14,7 @@ function solution(arr1, arr2){
         if(arr1[p1] <= arr2[p2]) answer.push(arr1[p1++]);
         else answer.push(arr2[p2++])
     }
+    // 남은 부분 처리해서 바로 쓱 넣기
     while(p1 < n) answer.push(arr1[p1++]);
     while(p2 < n) answer.push(arr2[p2++]);
 
