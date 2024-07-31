@@ -10,10 +10,10 @@ function solution(s){
             map.set(i, num);
         }
     }
-    map.forEach((a, b) => {
-        if(a > max){
-            answer = b;
-            max = a;
+    map.forEach((val, key) => {
+        if(val > max){
+            max = val;
+            answer = key;
         }
     })
     return answer;
