@@ -53,3 +53,41 @@ function solution(board) {
   // 최종 확인 결과를 반환해줍니다.
   return answer;
 }
+
+2;
+3;
+4;
+5;
+6;
+7;
+8;
+9;
+10;
+11;
+12;
+13;
+14;
+function solution(board) {
+  let outside = [
+    [-1, 0],
+    [-1, -1],
+    [-1, 1],
+    [0, -1],
+    [0, 1],
+    [1, 0],
+    [1, -1],
+    [1, 1],
+  ];
+  let safezone = 0;
+
+  board.forEach((row, y, self) =>
+    row.forEach((it, x) => {
+      if (it === 1) return false;
+      return outside.some(([oy, ox]) => !!self[oy + y]?.[ox + x])
+        ? false
+        : safezone++;
+    })
+  );
+
+  return safezone;
+}
