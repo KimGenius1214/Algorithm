@@ -24,3 +24,18 @@ function solution(lines) {
   });
   return lst.reduce((a, c) => (c > 1 ? a + 1 : a), 0);
 }
+
+const solution = (lines) => {
+  const stage = new Set();
+  const overlapped = new Set();
+  lines.forEach(([start, end]) => {
+    for (let num = start; num < end; num++) {
+      if (stage.has(num)) {
+        overlapped.add(num);
+      }
+      stage.add(num);
+    }
+  });
+  const answer = overlapped.size;
+  return answer;
+};
