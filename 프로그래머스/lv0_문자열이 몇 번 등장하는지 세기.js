@@ -8,3 +8,8 @@ function solution(myString, pat) {
   }
   return set.size;
 }
+
+function solution(myString, pat) {
+  const reg = new RegExp(`(?=${pat})`, "g");
+  return (myString.match(reg) || []).length;
+}
