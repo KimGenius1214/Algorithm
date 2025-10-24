@@ -42,3 +42,20 @@ function solution(id_list, report, k) {
 
   return answer;
 }
+
+function solution(id_list, report, k) {
+  const reports = [...new Set(report)].map((a) => a.split(" "));
+  const count = new Map();
+  for (const bad of reports) {
+    count.set(bad[1], count.get(bad[1]) + 1 || 1);
+  }
+  console.log(count);
+  const people = new Map();
+  for (const report of reports) {
+    if (count.get(report[1]) >= k) {
+      people.set(report[0], people.get(report[0]) + 1 || 1);
+    }
+  }
+  console.log(people);
+  return id_list.map((a) => people.get(a) || 0);
+}
