@@ -4,4 +4,3 @@ function solution(arr) {
   let min = Math.min(...oddNum);
   return `${sum}\n${min}`;
 }
-console.log(solution([12, 77, 38, 41, 53, 92, 85]));
