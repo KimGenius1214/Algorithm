@@ -2,4 +2,3 @@ function solution(a, b, c, d, e, f, g, h) {
   let min = Math.min(a, b, c, d, e, f, g, h);
   return min;
 }
-console.log(solution(34, 23, 1, 67, 45, 33, 89, 11));
