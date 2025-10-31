@@ -17,9 +17,6 @@ function solution(arr) {
           ny < n &&
           arr[nx][ny] >= arr[i][j]
         ) {
-          console.log(i, j);
-          console.log(arr[nx][ny]);
-          // console.log(arr[i][j]);
           flag = false;
           break;
         }
