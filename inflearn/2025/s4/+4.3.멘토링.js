@@ -44,6 +44,39 @@ function solution(n, m, tests) {
   return count;
 }
 
+function solution(n, m, tests) {
+  let answer = 0;
+  for (let mentor = 1; mentor < n; mentor++) {
+    for (let mentee = 1; mentee < n; mentee++) {
+      let isValid = true;
+
+      if (mentor === mentee) continue;
+
+      for (let i = 0; i < m; i++) {
+        let mentorRank = -1;
+        let menteeRank = -1;
+
+        for (let j = 0; j < n; j++) {
+          if (mentor === tests[i][j]) {
+            mentorRank = j;
+          }
+
+          if (mentee === tests[i][j]) {
+            menteeRank = j;
+          }
+        }
+
+        if (mentorRank > menteeRank) {
+          isValid = false;
+          break;
+        }
+      }
+      if (isValid) answer++;
+    }
+  }
+  return answer;
+}
+
 // 입력 처리 예제
 const n = 4;
 const m = 3;

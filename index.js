@@ -1,49 +1,17 @@
-function solution(budget, gift) {
+function solution(k, arr) {
   let answer = 0;
-  const n = gift.length;
-
-  gift.sort((a, b) => {
-    const totalA = a[0] + a[1];
-    const totalB = b[0] + b[1];
-    return totalA - totalB;
-  });
-
-  for (let discountIndex = 0; discountIndex < n; discountIndex++) {
-    let tempBudget = budget;
-    let count = 0;
-
-    const [price, delivery] = gift[discountIndex];
-    const discountPrice = price / 2 + delivery;
-
-    if (tempBudget < discountPrice) {
-      continue;
-    }
-
-    tempBudget -= discountPrice;
-    count++;
-
-    for (let i = 0; i < n; i++) {
-      if (discountIndex === i) continue;
-
-      const normalPrice = gift[i][0] + gift[i][1];
-
-      if (tempBudget >= normalPrice) {
-        tempBudget -= normalPrice;
-        count++;
+  let n = arr.length;
+  const set = new Set();
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n - i; j++) {
+      for (let k = j + 1; k < n - i - k; k++) {
+        console.log(k);
       }
     }
-
-    answer = Math.max(answer, count);
   }
 
   return answer;
 }
 
-let arr = [
-  [6, 6],
-  [2, 2],
-  [4, 3],
-  [4, 5],
-  [10, 3],
-];
-console.log(solution(28, arr));
+let arr = [13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
+console.log(solution(3, arr));
