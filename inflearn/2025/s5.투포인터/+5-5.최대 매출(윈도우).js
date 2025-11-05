@@ -1,6 +1,6 @@
 function solution(n, arr) {
-  let sum = 0;
   let answer = 0;
+  let sum = 0;
 
   for (let i = 0; i < n; i++) {
     sum += arr[i];
