@@ -1,15 +1,33 @@
+// function solution(n, arr) {
+//   let answer = 0;
+//   let sum = 0;
+
+//   for (let i = 0; i < n; i++) {
+//     sum += arr[i];
+//   }
+//   answer = sum;
+//   for (let i = n; i < arr.length; i++) {
+//     sum += arr[i] - arr[i - n];
+//     answer = Math.max(answer, sum);
+//   }
+//   return answer;
+// }
+
 function solution(n, arr) {
+  let maxSum = 0;
   let answer = 0;
-  let sum = 0;
 
   for (let i = 0; i < n; i++) {
-    sum += arr[i];
+    maxSum += arr[i];
   }
-  answer = sum;
+
+  answer = maxSum;
+
   for (let i = n; i < arr.length; i++) {
-    sum += arr[i] - arr[i - n];
-    answer = Math.max(answer, sum);
+    maxSum += arr[i] - arr[i - n];
+    answer = Math.max(answer, maxSum);
   }
+
   return answer;
 }
 
