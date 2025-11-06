@@ -1,20 +1,33 @@
-function solution(str) {
+function solution(board, moves) {
   let stack = [];
-  let answer = "";
+  let answer = 0;
 
-  for (const i of str) {
-    if (i === "(") stack.push(i);
-    else if (i === ")") {
-      stack.pop();
-    } else {
-      if (stack.length === 0) {
-        answer += i;
+  moves.forEach((mov) => {
+    for (let i = 0; i < board.length; i++) {
+      if (board[i][mov - 1] !== 0) {
+        let tmp = board[i][mov - 1];
+        board[i][mov - 1] = 0;
+        if (tmp === stack[stack.length - 1]) {
+          stack.pop();
+          answer += 2;
+        } else {
+          stack.push(tmp);
+        }
+        break;
       }
     }
-  }
+  });
 
   return answer;
 }
 
-let str = "(A(BC)D)EF(G(H)(IJ)K)LM(N)";
-console.log(solution(str));
+let board = [
+  [0, 0, 0, 0, 0],
+  [0, 0, 1, 0, 3],
+  [0, 2, 5, 0, 1],
+  [4, 2, 4, 4, 2],
+  [3, 5, 1, 3, 1],
+];
+let moves = [1, 5, 3, 5, 1, 2, 1, 4];
+
+console.log(solution(board, moves));
