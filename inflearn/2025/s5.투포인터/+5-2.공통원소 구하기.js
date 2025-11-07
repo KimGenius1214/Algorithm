@@ -32,7 +32,7 @@ function solution(arr1, arr2) {
   let p2 = 0;
 
   while (p1 < n && p2 < m) {
-    if (arr1[p1] === arr2[2]) {
+    if (arr1[p1] === arr2[p2]) {
       answer.push(arr1[p1]);
       p1++;
       p2++;
