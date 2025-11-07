@@ -4,22 +4,18 @@ function solution(str) {
   for (const i of str) {
     if (Number(i)) {
       stack.push(Number(i));
-    } else if (i === "+") {
-      const next = stack.pop();
+    } else {
       const prev = stack.pop();
-      stack.push(prev + next);
-    } else if (i === "-") {
       const next = stack.pop();
-      const prev = stack.pop();
-      stack.push(prev - next);
-    } else if (i === "*") {
-      const next = stack.pop();
-      const prev = stack.pop();
-      stack.push(prev * next);
-    } else if (i === "/") {
-      const next = stack.pop();
-      const prev = stack.pop();
-      stack.push(prev / next);
+      if (i === "+") {
+        stack.push(prev + next);
+      } else if (i === "-") {
+        stack.push(prev - next);
+      } else if (i === "*") {
+        stack.push(prev * next);
+      } else if (i === "/") {
+        stack.push(prev / next);
+      }
     }
   }
 
