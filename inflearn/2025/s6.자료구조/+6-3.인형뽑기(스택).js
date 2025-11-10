@@ -21,6 +21,28 @@ function solution(board, moves) {
   return answer;
 }
 
+function solution(board, moves) {
+  let answer = 0;
+  let stack = [];
+
+  moves.forEach((mov) => {
+    for (let i = 0; i < board.length; i++) {
+      if (board[i][mov - 1] !== 0) {
+        const temp = board[i][mov - 1];
+        board[i][mov - 1] = 0;
+        if (temp === stack[stack.length - 1]) {
+          stack.pop();
+          answer += 2;
+        } else {
+          stack.push(temp);
+        }
+      }
+    }
+  });
+
+  return answer;
+}
+
 let board = [
   [0, 0, 0, 0, 0],
   [0, 0, 1, 0, 3],
