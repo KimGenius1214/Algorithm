@@ -77,6 +77,37 @@ function solution(n, m, tests) {
   return answer;
 }
 
+function solution(n, m, tests) {
+  let answer = 0;
+
+  for (let mentor = 0; mentor < n; mentor++) {
+    for (let mentee = 0; mentee < n; mentee++) {
+      let isValid = true;
+      if (mentor === mentee) continue;
+
+      for (let i = 0; i < m; i++) {
+        let mentorRank = -1;
+        let menteeRank = -1;
+        for (let rank = 0; rank < n; rank++) {
+          if (mentor === tests[i][rank]) {
+            mentorRank = rank;
+          }
+          if (mentee === tests[i][rank]) {
+            menteeRank = rank;
+          }
+        }
+        if (mentorRank > menteeRank) {
+          isValid = false;
+          continue;
+        }
+      }
+      if (isValid) {
+        answer++;
+      }
+    }
+  }
+}
+
 // 입력 처리 예제
 const n = 4;
 const m = 3;
