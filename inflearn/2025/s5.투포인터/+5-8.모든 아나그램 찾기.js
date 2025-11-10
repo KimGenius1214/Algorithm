@@ -81,6 +81,50 @@ function isSameMap(map1, map2) {
   return true;
 }
 
+function solution(str1, str2) {
+  let answer = 0;
+  let n = str1.length;
+  let m = str2.length;
+  if (n < m) return 0;
+
+  let tmap = new Map();
+  let wmap = new Map();
+
+  for (let i = 0; i < m; i++) {
+    tmap.set(str2[i], (tmap.get(str2[i]) || 0) + 1);
+  }
+
+  for (let i = 0; i < n; i++) {
+    wmap.set(str1[i], (wmap.get(str2[i]) || 0) + 1);
+  }
+
+  if (isSameAnagram(tmap, wmap)) answer++;
+
+  for (let right = m; right < n; right++) {
+    let left = n - m;
+
+    wmap.set(str1[left], (wmap.get(str1[left]) || 0) - 1);
+
+    if (wmap.get(str1[left]) === 0) {
+      wmap.delete();
+    }
+
+    wmap.set(str1[right], (wmap.get(str1[right]) || 0) + 1);
+    if (isSameAnagram(wmap, tmap)) answer++;
+  }
+  return answer;
+}
+
+function isSameAnagram(map1, map2) {
+  if (map1.size !== map2.size) return false;
+
+  for (const [key, value] of map1) {
+    if (map2.get(key) !== value) return false;
+  }
+
+  return true;
+}
+
 let str1 = "bacaAacba";
 let str2 = "abc";
 console.log(solution(str1, str2));
