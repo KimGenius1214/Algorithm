@@ -30,6 +30,24 @@ function solution(m, arr) {
   return count;
 }
 
+function solution(m, arr) {
+  let count;
+  let sum;
+  let p1;
+
+  for (let p2 = 0; p2 < arr.length; p2++) {
+    sum += arr[p2];
+
+    while (sum > m) {
+      sum -= arr[p1++];
+    }
+
+    count = p2 - p1 + 1;
+  }
+
+  return count;
+}
+
 let arr = [1, 3, 1, 2, 3];
 
 console.log(solution(5, arr));
