@@ -2,9 +2,11 @@ function solution(arr) {
   let answer = [];
   let sortedArr = [...arr];
   sortedArr.sort((a, b) => a - b);
+
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] !== sortedArr[i]) answer.push(i);
   }
+
   return answer;
 }
 
