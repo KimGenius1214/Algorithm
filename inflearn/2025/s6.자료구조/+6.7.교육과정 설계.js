@@ -10,6 +10,22 @@ function solution(ness, list) {
   return answer;
 }
 
+function solution(n, str) {
+  let queue = n.split("");
+  for (const i of str) {
+    if (queue.includes(i)) {
+      if (queue.shift() !== i) {
+        return "NO";
+      }
+    }
+  }
+  if (queue.length > 0) {
+    return "NO";
+  }
+
+  return "YES";
+}
+
 let ness = "CBA";
 let list = "CBDAGE";
 
