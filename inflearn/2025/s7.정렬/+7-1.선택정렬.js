@@ -38,6 +38,21 @@ function solution(arr) {
   return answer;
 }
 
+function solution(arr) {
+  let answer = [];
+  let n = arr.length;
+
+  for (let i = 0; i < n - 1; i++) {
+    let idx = i;
+    for (let j = 0; j < n - i - 1; j++) {
+      if (arr[j] < arr[i]) idx = i;
+    }
+    if (idx !== i) [arr[idx], arr[i]] = [arr[i], arr[idx]];
+  }
+
+  return answer;
+}
+
 let arr = [13, 5, 11, 7, 23, 15];
 
 console.log(solution(arr));
