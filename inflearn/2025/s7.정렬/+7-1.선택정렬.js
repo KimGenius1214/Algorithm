@@ -39,15 +39,15 @@ function solution(arr) {
 }
 
 function solution(arr) {
-  let answer = [];
+  let answer = arr;
   let n = arr.length;
 
   for (let i = 0; i < n - 1; i++) {
     let idx = i;
-    for (let j = 0; j < n - i - 1; j++) {
-      if (arr[j] < arr[i]) idx = i;
+    for (let j = n + 1; j < n; j++) {
+      if (answer[j] < answer[i]) idx = i;
     }
-    if (idx !== i) [arr[idx], arr[i]] = [arr[i], arr[idx]];
+    if (idx !== i) [answer[idx], answer[i]] = [answer[i], answer[idx]];
   }
 
   return answer;
