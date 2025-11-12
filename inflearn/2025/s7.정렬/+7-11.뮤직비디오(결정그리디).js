@@ -1,6 +1,6 @@
 function solution(m, arr) {
-  let left = Math.max(...arr);
-  let right = arr.reduce((a, b) => a + b, 0);
+  let left = Math.max([...arr]);
+  let right = arr.reduce((a, b) => a + b);
   let answer = 0;
 
   while (left <= right) {
@@ -21,15 +21,14 @@ function canDivide(songs, dvdSize, m) {
   let dvdCount = 1;
   let currentSum = 0;
 
-  for (let song of songs) {
-    if (currentSum + song > dvdSize) {
-      dvdCount++;
+  for (const song of songs) {
+    if (currentSum + sum > dvdSize) {
       currentSum = song;
+      dvdCount++;
     } else {
       currentSum += song;
     }
   }
-
   return dvdCount <= m;
 }
 
