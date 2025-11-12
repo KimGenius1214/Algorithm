@@ -1,17 +1,19 @@
 function solution(arr) {
   let events = [];
-  for (const i of arr) {
-    events.push([i[0], 1]);
-    events.push([i[1], -1]);
+  for (const [arrive, leave] of arr) {
+    events.push([arrive, 1]);
+    events.push([leave, -1]);
   }
   events.sort((a, b) => (a[0] === b[0] ? a[1] - b[1] : a[0] - b[0]));
+
   let current = 0;
   let maxCount = 0;
 
-  for (let [time, change] of events) {
+  for (const [time, change] of events) {
     current += change;
-    maxCount = Math.max(maxCount, current);
+    maxCount = Math.max(maxCount, change);
   }
+
   return maxCount;
 }
 
