@@ -32,6 +32,40 @@ function canDivide(songs, dvdSize, m) {
   return dvdCount <= m;
 }
 
+function canDivide(songs, dvdSize, m) {
+  let dvdCount = 1;
+  let currentSum = 0;
+
+  for (const song of songs) {
+    if (currentSum + song > dvdSize) {
+      currentSum = song;
+      dvdCount++;
+    } else {
+      currentSum += song;
+    }
+  }
+  return dvdCount <= m;
+}
+
+function solution(m, arr) {
+  let left = Math.max(...arr);
+  let right = arr.reduce((acc, cur) => acc + cur, 0);
+  let answer = 0;
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+
+    if (canDivide(arr, mid, m)) {
+      answer = mid;
+      right = mid - 1;
+    } else {
+      left = mid + 1;
+    }
+  }
+
+  return answer;
+}
+
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 console.log(solution(3, arr));
