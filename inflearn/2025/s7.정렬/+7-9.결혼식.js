@@ -17,6 +17,24 @@ function solution(arr) {
   return maxCount;
 }
 
+function solution(arr) {
+  let events = [];
+  for (const [arrive, leave] of arr) {
+    events.push([arrive, +1]);
+    events.push([leave, -1]);
+  }
+  events.sort((a, b) => (a[0] === b[0] ? a[1] - b[1] : a[0] - b[0]));
+
+  let maxCount = 0;
+  let currentSum = 0;
+
+  for (const [time, change] of events) {
+    currentSum += change;
+    maxCount = Math.max(maxCount, change);
+  }
+  return maxCount;
+}
+
 let arr = [
   [14, 18],
   [12, 15],
