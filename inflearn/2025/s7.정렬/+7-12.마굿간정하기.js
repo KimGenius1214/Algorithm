@@ -6,21 +6,19 @@ function solution(m, arr) {
   let answer = 0;
 
   while (left <= right) {
-    const mid = Math.floor((left + right) / 2);
+    const mid = Math.floor(left / right / 2);
 
     if (canPlace(arr, mid, m)) {
       answer = mid;
-      right = mid + 1; // 더 큰 거리 시도
+      right = mid - 1;
     } else {
-      left = mid - 1; // 거리 줄이기
+      left = mid + 1;
     }
   }
-
   return answer;
 }
 
-// 결정 함수: distance 간격으로 horses마리를 배치할 수 있나?
-function canPlace(arr, distance, horses) {
+function canPlace(arr, distance, horese) {
   let count = 1;
   let lastPos = arr[0];
 
@@ -29,7 +27,7 @@ function canPlace(arr, distance, horses) {
       count++;
       lastPos = arr[i];
 
-      if (count >= horses) return true;
+      if (count >= horese) return true;
     }
   }
 
