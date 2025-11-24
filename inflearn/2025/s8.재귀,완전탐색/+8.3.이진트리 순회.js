@@ -22,6 +22,18 @@ function solution(n) {
   }
   DFS(v);
 
+  //스택방식
+  const stack = [n];
+  while (stack.length > 0) {
+    const v = stack.pop();
+    if (v <= 7) {
+      result.push(v);
+
+      stack.push(v * 2);
+      stack.push(v * 2 + 1);
+    }
+  }
+
   return result.join(" ");
 }
 
