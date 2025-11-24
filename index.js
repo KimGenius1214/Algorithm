@@ -1,30 +1,40 @@
 function solution(n) {
-  const result = [];
+  const answer = [];
+  const temp = [];
+  let callCount = 0;
 
-  function DFS(v) {
-    if (v > 7) return;
-    //전위 순회 출력
-    // else {
-    //   result.push(v);
-    //   DFS(v * 2);
-    //   DFS(v * 2 + 1);
-    // }
-    //중위 순회 출력
-    // else {
-    //   DFS(v * 2);
-    //   result.push(v);
-    //   DFS(v * 2 + 1);
-    // }
-    //후위 순회 출력
-    else {
-      DFS(v * 2);
-      DFS(v * 2 + 1);
-      result.push(v);
+  function DFS(level, indent = "") {
+    callCount++;
+    const id = callCount;
+
+    console.log(`${indent}[${id}] DFS(${level}) 시작 | temp=[${temp}]`);
+
+    if (level > n) {
+      if (temp.length > 0) {
+        console.log(`${indent}[${id}] ✓ 출력: [${temp}]`);
+        answer.push([...temp]);
+      }
+      console.log(`${indent}[${id}] return`);
+      return;
     }
-  }
-  DFS(n);
 
-  return result.join(" ");
+    // 포함
+    temp.push(level);
+    console.log(`${indent}[${id}] ${level} 추가 → temp=[${temp}]`);
+    DFS(level + 1, indent + "  ");
+
+    console.log(`${indent}[${id}] ← 재귀에서 돌아옴`);
+
+    // 미포함
+    temp.pop();
+    console.log(`${indent}[${id}] ${level} 제거 → temp=[${temp}]`);
+    DFS(level + 1, indent + "  ");
+
+    console.log(`${indent}[${id}] DFS(${level}) 종료`);
+  }
+
+  DFS(1);
+  return answer;
 }
 
-console.log(solution(1));
+console.log("\n최종 결과:", solution(3));
