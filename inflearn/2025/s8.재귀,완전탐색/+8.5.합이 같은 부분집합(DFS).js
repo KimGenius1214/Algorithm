@@ -3,7 +3,6 @@ function solution(arr) {
   const total = arr.reduce((a, b) => a + b, 0);
 
   if (total % 2 !== 0) return "NO";
-
   const target = total / 2;
   let found = false;
 
@@ -23,7 +22,6 @@ function solution(arr) {
 
     DFS(level + 1, sum);
   }
-
   DFS(0, 0);
 
   return found ? "YES" : "NO";
