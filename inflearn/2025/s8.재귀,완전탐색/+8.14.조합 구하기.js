@@ -15,9 +15,9 @@ function solution(n, m) {
       DFS(level + 1, i + 1);
     }
   }
-
   DFS(0, 1);
 
   return result;
 }
+
 console.log(solution(4, 2));
