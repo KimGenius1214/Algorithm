@@ -1,5 +1,6 @@
 function solution(n, r) {
   const dp = Array.from({ length: n + 1 }, () => Array(r + 1).fill(0));
+
   function DFS(n, r) {
     if (r === 0 || n === r) {
       return 1;
@@ -15,4 +16,4 @@ function solution(n, r) {
   return DFS(n, r);
 }
 
-console.log(solution(33, 19));
+console.log(solution(5, 3));
