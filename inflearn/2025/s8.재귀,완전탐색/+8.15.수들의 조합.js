@@ -13,11 +13,8 @@ function solution(n, k, arr, m) {
       DFS(level + 1, i + 1, sum + arr[i]);
     }
   }
-
   DFS(0, 0, 0);
-
-  return count;
 }
 
-let arr = [2, 4, 5, 8, 12];
+const arr = [2, 4, 5, 8, 12];
 console.log(solution(5, 3, arr, 6));
