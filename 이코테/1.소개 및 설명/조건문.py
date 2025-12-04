@@ -19,3 +19,8 @@ if True or False:
 
 
 # in, not in 사용 가능 리스트, 튜플 ,문자열, 딕셔너리 모두에서 사용 가능
+# 아무것도 처리하고 싶지 않을 떄 pass(디버깅 시 사용)
+
+#조건부 표현식
+result = 'sucess' if x >= 15 else 'fail'
+print(result)
