@@ -18,8 +18,15 @@ s = input()
 
 result = int(s[0])
 
-for i in s[1:]:
-    num = int(i)
-    result = max(result + num, result * num)
+# for i in s[1:]:
+#     num = int(i)
+#     result = max(result + num, result * num)
+
+for char in s[1:]:
+    num = int(char)
+    if(num <= 1 or result <= 1):
+        result += num
+    else:
+        result *= num
 
 print(result)
