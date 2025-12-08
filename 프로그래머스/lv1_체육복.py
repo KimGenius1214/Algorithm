@@ -21,10 +21,10 @@ def solution(n, lost, reserve):
     return answer
 
 
-    def solution(n, lost, reserve):
+def solution(n, lost, reserve):
     interSec = list(set(lost).intersection(reserve))
-    lost = [i for i in lost if i not in reserve]
-    reserve = [i for i in reserve if i not in lost]
+    lost = [i for i in lost if i not in interSec]
+    reserve = [i for i in reserve if i not in interSec]
     count = 0
     lost.sort()
     reserve.sort()
