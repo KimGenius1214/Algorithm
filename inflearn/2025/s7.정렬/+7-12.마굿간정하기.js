@@ -49,6 +49,21 @@ function canPlace(arr, distance, horses) {
   return false;
 }
 
+function canPlace(arr, distance, horses) {
+  let count = 1;
+  let lastPos = arr[0];
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] - lastPos >= distance) {
+      count++;
+      lastPos = arr[i];
+    }
+    if (count >= horses) return true;
+  }
+
+  return false;
+}
+
 let arr = [1, 2, 8, 4, 9];
 
 console.log(solution(3, arr));
