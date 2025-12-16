@@ -15,3 +15,9 @@ def bfs(graph, start, visited):
             if not visited[i]:
                 queue.append(i)
                 visited[i] = True
+
+graph = [[], []]
+
+visited = [False] * 9
+
+bfs(graph, 1, visited)
