@@ -16,6 +16,18 @@ def bfs(graph, start, visited):
                 queue.append(i)
                 visited[i] = True
 
+def bfs(graph, start, vistied):
+    queue = deque([start])
+    visited[start] = True
+    while queue:
+        v = queue.popleft()
+        print(v, end = '')
+        for i in graph[v]:
+            if not visited[i]:
+                queue.append(i)
+                visited[i] = True
+
+
 graph = [[], []]
 
 visited = [False] * 9
